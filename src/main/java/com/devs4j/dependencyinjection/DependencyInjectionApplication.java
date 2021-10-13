@@ -7,6 +7,7 @@ import com.devs4j.dependencyinjection.qualifers.Avion;
 import com.devs4j.dependencyinjection.qualifers.Nido;
 import com.devs4j.dependencyinjection.qualifers.Pajaro;
 import com.devs4j.dependencyinjection.qualifers.Perro;
+import com.devs4j.dependencyinjection.scopes.EjemploScopeService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,8 +50,17 @@ public class DependencyInjectionApplication {
 		 * Nido nido = context.getBean(Nido.class); nido.Imprimir();
 		 */
 
-		EnvironmentService environmentService = context.getBean(EnvironmentService.class);
-		log.info("Active environment  {}", environmentService.getEnvironment());
+		/*
+		 * EnvironmentService environmentService =
+		 * context.getBean(EnvironmentService.class); log.info("Active environment  {}",
+		 * environmentService.getEnvironment());
+		 */
+
+		EjemploScopeService ejemploScopeService = context.getBean(EjemploScopeService.class);
+		EjemploScopeService ejemploScopeService1 = context.getBean(EjemploScopeService.class);
+
+		log.info("Los beans son iguales equal {}", ejemploScopeService.equals(ejemploScopeService1));
+		log.info("Los beans son iguales == {}", ejemploScopeService == ejemploScopeService1);
 
 	}
 
