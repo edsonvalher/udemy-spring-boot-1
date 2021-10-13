@@ -1,6 +1,7 @@
 package com.devs4j.dependencyinjection;
 
 import com.devs4j.dependencyinjection.atributo.Carro;
+import com.devs4j.dependencyinjection.profiles.EnvironmentService;
 import com.devs4j.dependencyinjection.qualifers.Animal;
 import com.devs4j.dependencyinjection.qualifers.Avion;
 import com.devs4j.dependencyinjection.qualifers.Nido;
@@ -44,8 +45,12 @@ public class DependencyInjectionApplication {
 		 * log.info("Animal {} edad {}", animal.getNombre(), animal.getEdad());
 		 */
 
-		Nido nido = context.getBean(Nido.class);
-		nido.Imprimir();
+		/*
+		 * Nido nido = context.getBean(Nido.class); nido.Imprimir();
+		 */
+
+		EnvironmentService environmentService = context.getBean(EnvironmentService.class);
+		log.info("Active environment  {}", environmentService.getEnvironment());
 
 	}
 
