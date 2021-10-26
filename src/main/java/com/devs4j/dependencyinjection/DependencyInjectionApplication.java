@@ -1,6 +1,7 @@
 package com.devs4j.dependencyinjection;
 
 import com.devs4j.dependencyinjection.atributo.Carro;
+import com.devs4j.dependencyinjection.autowire.AreaCalculatorService;
 import com.devs4j.dependencyinjection.profiles.EnvironmentService;
 import com.devs4j.dependencyinjection.qualifers.Animal;
 import com.devs4j.dependencyinjection.qualifers.Avion;
@@ -74,8 +75,13 @@ public class DependencyInjectionApplication {
 		 * ejemploScopeService1);
 		 */
 
-		String nombreAplicacion = context.getBean(String.class);
-		log.info("Nombre de la aplicación es {}", nombreAplicacion);
+		/*
+		 * String nombreAplicacion = context.getBean(String.class);
+		 * log.info("Nombre de la aplicación es {}", nombreAplicacion);
+		 */
+
+		AreaCalculatorService areaCalculatorService = context.getBean(AreaCalculatorService.class);
+		log.info("Area total es {} ", areaCalculatorService.calcAreas());
 
 	}
 
